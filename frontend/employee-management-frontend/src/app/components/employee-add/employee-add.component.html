@@ -1,28 +1,70 @@
-<div>
-    <h2>Add Employee</h2>
-    <form (ngSubmit)="addEmployee()">
-      <label>First Name:
-        <input type="text" [(ngModel)]="employee.firstName" name="firstName" required />
-      </label>
-      <label>Last Name:
-        <input type="text" [(ngModel)]="employee.lastName" name="lastName" required />
-      </label>
-      <label>Email:
-        <input type="email" [(ngModel)]="employee.email" name="email" required />
-      </label>
-      <label>Phone:
-        <input type="text" [(ngModel)]="employee.phone" name="phone" required />
-      </label>
-      <label>Position:
-        <input type="text" [(ngModel)]="employee.position" name="position" required />
-      </label>
-      <label>Department:
-        <input type="text" [(ngModel)]="employee.department" name="department" required />
-      </label>
-      <label>Date of Hire:
-        <input type="date" [(ngModel)]="employee.dateOfHire" name="dateOfHire" required />
-      </label>
-      <button type="submit">Add</button>
-    </form>
-  </div>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add Employee</h2>
   
+  <form (ngSubmit)="addEmployee()" class="needs-validation" novalidate>
+    
+    <div class="form-group mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input type="text" id="firstName" [(ngModel)]="employee.firstName" name="firstName" class="form-control" required>
+      <div class="invalid-feedback">First Name is required.</div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" id="lastName" [(ngModel)]="employee.lastName" name="lastName" class="form-control" required>
+      <div class="invalid-feedback">Last Name is required.</div>
+    </div>
+    
+    <div class="form-group mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" [(ngModel)]="employee.email" name="email" class="form-control" required>
+      <div class="invalid-feedback">A valid Email is required.</div>
+    </div>
+    
+    <div class="form-group mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="text" id="phone" [(ngModel)]="employee.phone" name="phone" class="form-control" required>
+      <div class="invalid-feedback">Phone number is required.</div>
+    </div>
+    
+    <div class="form-group mb-3">
+      <label for="position" class="form-label">Position</label>
+      <input type="text" id="position" [(ngModel)]="employee.position" name="position" class="form-control" required>
+      <div class="invalid-feedback">Position is required.</div>
+    </div>
+    
+    <div class="form-group mb-3">
+      <label for="department" class="form-label">Department</label>
+      <input type="text" id="department" [(ngModel)]="employee.department" name="department" class="form-control" required>
+      <div class="invalid-feedback">Department is required.</div>
+    </div>
+    
+    <div class="form-group mb-3">
+      <label for="dateOfHire" class="form-label">Date of Hire</label>
+      <input type="date" id="dateOfHire" [(ngModel)]="employee.dateOfHire" name="dateOfHire" class="form-control" required>
+      <div class="invalid-feedback">Date of Hire is required.</div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary w-100">Add Employee</button>
+  </form>
+</div>
+
+<!-- Add Bootstrap JS for Form Validation -->
+<script>
+  // Bootstrap 5 custom form validation
+  (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>

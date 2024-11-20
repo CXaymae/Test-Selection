@@ -1,0 +1,101 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Edit Employee</h2>
+
+  <form (ngSubmit)="updateEmployee()">
+    <!-- First Name -->
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        [(ngModel)]="employee.firstName"
+        name="firstName"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        [(ngModel)]="employee.lastName"
+        name="lastName"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="employee.email"
+        name="email"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Phone -->
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input
+        type="text"
+        id="phone"
+        [(ngModel)]="employee.phone"
+        name="phone"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Position -->
+    <div class="mb-3">
+      <label for="position" class="form-label">Position</label>
+      <input
+        type="text"
+        id="position"
+        [(ngModel)]="employee.position"
+        name="position"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Department -->
+    <div class="mb-3">
+      <label for="department" class="form-label">Department</label>
+      <input
+        type="text"
+        id="department"
+        [(ngModel)]="employee.department"
+        name="department"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Date of Hire -->
+    <div class="mb-3">
+      <label for="dateOfHire" class="form-label">Date of Hire</label>
+      <input
+        type="date"
+        id="dateOfHire"
+        [(ngModel)]="employee.dateOfHire"
+        name="dateOfHire"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Save Button -->
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+  </form>
+</div>
