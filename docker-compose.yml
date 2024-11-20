@@ -1,26 +1,27 @@
-version: '3.8'
+version: '3.8' # Defines the Docker Compose file format version to use.
 
-services:
-  backend:
-    build:
-      context: ./backend
+services: # Specifies the services that make up the application.
+  
+  backend: # Backend service for the application.
+    build: # Specifies how to build the backend Docker image.
+      context: ./backend # The relative path to the backend directory containing the Dockerfile.
     ports:
-      - "8080:8080"
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/employee_management
+      - "8080:8080" # Maps the host's port 8080 to the container's port 8080.
+    environment: # Environment variables to be passed into the backend container.
+      - MONGO_URI=mongodb://mongo:27017/employeesDB # URI for connecting to the MongoDB service.
     depends_on:
-      - mongo
+      - mongo # Ensures that the backend starts only after the MongoDB service is running.
 
-  frontend:
-    build:
-      context: ./frontend
+  frontend: # Frontend service for the application.
+    build: # Specifies how to build the frontend Docker image.
+      context: ./frontend # The relative path to the frontend directory containing the Dockerfile.
     ports:
-      - "4200:4200"
+      - "4200:4200" # Maps the host's port 4200 to the container's port 4200 for accessing the Angular app.
     depends_on:
-      - backend
+      - backend # Ensures that the frontend starts only after the backend service is running.
 
-  mongo:
-    image: mongo:6
-    container_name: mongodb
+  mongo: # MongoDB database service.
+    image: mongo:6 # Uses the official MongoDB image version 6.
+    container_name: mongodb # Sets a custom name for the MongoDB container.
     ports:
-      - "27017:27017"
+      - "27017:27017" # Maps the host's port 27017 to the container's port 27017 for database access.
